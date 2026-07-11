@@ -1,0 +1,34 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "ig-autodm",
+	"main": "src/index.mjs",
+	"compatibility_date": "2026-05-22",
+	"compatibility_flags": ["nodejs_compat"],
+	"observability": {
+		"enabled": true
+	},
+	// Catch-up cron: every 10 minutes, scan recent comments via Meta API and
+	// backfill DMs for any that Instagram's spam classifier dropped from the
+	// webhook delivery.
+	"triggers": {
+		"crons": ["*/10 * * * *"]
+	},
+	// KV namespace for per-(media+user) dedupe. Create your own with:
+	//   npx wrangler kv namespace create DEDUPE_KV
+	// Then paste the printed `id` below.
+	"kv_namespaces": [
+		{
+			"binding": "DEDUPE_KV",
+			"id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+		}
+	]
+	// Required secrets — set each with `npx wrangler secret put <NAME>`:
+	//   META_LONG_TOKEN
+	//   META_APP_SECRET
+	//   META_IG_USER_ID
+	//   META_IG_USERNAME
+	//   META_WEBHOOK_VERIFY_TOKEN
+	//   NOTION_API_KEY
+	//   NOTION_CONTENT_DB_ID
+	//   NOTION_ACTIVITY_LOG_DB_ID
+}

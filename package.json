@@ -1,0 +1,19 @@
+{
+  "name": "ig-autodm",
+  "version": "1.0.0",
+  "description": "Self-hosted Instagram auto-DM-on-comment. A free, open-source replacement for ManyChat's $40/mo plan.",
+  "type": "module",
+  "scripts": {
+    "ig-autodm": "node scripts/ig-autodm.mjs",
+    "ig-autodm:dry": "node scripts/ig-autodm.mjs --dry-run",
+    "ig-autodm:attach": "node scripts/ig-autodm-attach.mjs",
+    "test": "node --test 'scripts/test/ig-autodm/*.test.mjs'"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

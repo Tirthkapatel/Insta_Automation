@@ -1,4 +1,4 @@
-# ig-autodm
+# Insta-Automation
 
 **Self-hosted Instagram auto-DM-on-comment. A free, open-source replacement for ManyChat's $40/month plan.**
 
